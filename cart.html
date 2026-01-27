@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Shopping Cart</title>
+   
+</head>
+<body>
+<h1>🛒 Shopping Cart</h1>
+<table id="cartTable">
+    <thead>
+        <tr>
+            <th>Book Name</th>
+            <th>Department</th>
+            <th>Price (₹)</th>
+            <th>Quantity</th>
+            <th>Subtotal (₹)</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>Database Systems</td>
+            <td>IT</td>
+            <td class="price">450</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">450</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Operating System Concepts</td>
+            <td>IT</td>
+            <td class="price">550</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">550</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Web Technologies</td>
+            <td>IT</td>
+            <td class="price">400</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">400</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Data Structures with C</td>
+            <td>IT</td>
+            <td class="price">350</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">350</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+
+        <tr>
+            <td>Computer Networks</td>
+            <td>CSE</td>
+            <td class="price">500</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">500</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Compiler Design</td>
+            <td>CSE</td>
+            <td class="price">600</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">600</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Artificial Intelligence</td>
+            <td>CSE</td>
+            <td class="price">700</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">700</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Machine Learning</td>
+            <td>CSE</td>
+            <td class="price">800</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">800</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+
+       
+        <tr>
+            <td>Electronic Devices and Circuits</td>
+            <td>ECE</td>
+            <td class="price">450</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">450</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Digital Signal Processing</td>
+            <td>ECE</td>
+            <td class="price">550</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">550</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Microprocessors and Microcontrollers</td>
+            <td>ECE</td>
+            <td class="price">600</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">600</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Communication Systems</td>
+            <td>ECE</td>
+            <td class="price">500</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">500</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+
+        
+        <tr>
+            <td>Thermodynamics</td>
+            <td>Mechanical</td>
+            <td class="price">500</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">500</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Fluid Mechanics</td>
+            <td>Mechanical</td>
+            <td class="price">550</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">550</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Strength of Materials</td>
+            <td>Mechanical</td>
+            <td class="price">600</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">600</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+        <tr>
+            <td>Machine Design</td>
+            <td>Mechanical</td>
+            <td class="price">650</td>
+            <td><input type="number" value="1" min="0" class="qty"></td>
+            <td class="subtotal">650</td>
+            <td><button class="btn remove">Remove</button></td>
+        </tr>
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">Total</td>
+            <td id="total">9650</td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+    const cartTable = document.getElementById('cartTable');
+    const totalCell = document.getElementById('total');
+
+    function updateSubtotal(row){
+        const price = parseFloat(row.querySelector('.price').textContent);
+        const qty = parseInt(row.querySelector('.qty').value);
+        row.querySelector('.subtotal').textContent = price * qty;
+    }
+
+    function updateTotal(){
+        let total = 0;
+        const subtotals = document.querySelectorAll('.subtotal');
+        subtotals.forEach(cell => total += parseFloat(cell.textContent));
+        totalCell.textContent = total;
+    }
+
+    
+    cartTable.addEventListener('input', function(e){
+        if(e.target.classList.contains('qty')){
+            const row = e.target.closest('tr');
+            updateSubtotal(row);
+            updateTotal();
+        }
+    });
+    cartTable.addEventListener('click', function(e){
+        if(e.target.classList.contains('remove')){
+            const row = e.target.closest('tr');
+            row.remove();
+            updateTotal();
+        }
+    });
+    updateTotal();
+</script>
+</body>
+</html>
