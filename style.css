@@ -1,20 +1,5 @@
-h2{
-    color: #0000ff;
-}
-*{
-    background-color: rgb(172, 252, 252);
-}
 
-#one{
-    color: red;
-  
-}
-#two {
-    color: green;
-  
-}
-
-#three{
-    color: blue;
-  
+#box{
+    background-color: blue;
+    color: rgb(255, 255, 255);
 }
