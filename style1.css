@@ -1,31 +1,83 @@
-  <style>
- 
-    #text {
-      width: 70%;
-      margin: 30px auto;
-      padding: 20px;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      background-color: #f9f9f9;
-    }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    #text h1 {
-      font-family: "Georgia", serif;
-      font-size: 36px;
-      font-weight: bold;
-      font-style: italic;
-      color: darkred;
-      text-align: center;
-    }
+html,body{
+    height: 100%;
+    width: 100%;
+}
 
- 
-    #text p {
-      font-family: "Arial", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      font-style: normal;
-      color: #333333;
-      line-height: 1.6;
-      text-align: justify;
+
+body{
+    height: 500vh;
+    background-color: #b9c0da;
+}
+
+
+
+.parent{
+    height: 500px;
+    width: 100%;
+    border: 2px solid black;
+    display: flex;
+    position: absolute;
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+.box1, .box2, .box3, .box4{
+    height: 100px;
+    width: 100px;
+    margin: 15px;
+}
+
+.box1{
+    position: sticky;
+    /* top: -15px; */
+    background-color: #c52233;
+    
+}
+.box2{
+    position: relative;
+    /* top: 15px; */
+    background-color: #A51C30;
+    
+    
+}
+.box3{
+    position: relative;
+    /* top: -15px; */
+    background-color: #A7333F;
+}
+.box4{
+    position: relative;
+    /* top: 15px; */
+    background-color: #74121D;
+}
+
+.box1:hover{
+    background-color: yellow;
+
+}
+.box2:hover{
+    background-color: orange;
+
+}
+.box3:hover{
+    background-color: green;
+
+}
+.box4:hover{
+    background-color: blue;
+}
+
+
+@media (max-width: 600px) and (min-width: 300px){
+    body{
+        background-color: lightblue;
+        justify-content: wrap;
     }
-  
+}
